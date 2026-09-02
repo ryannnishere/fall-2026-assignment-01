@@ -1,5 +1,8 @@
 export function getInventoryValue(
-  inventory: Array<[string, number, number]>,
+ inventory: Array<[string, number, number]>, 
 ): number {
-  return 0;
+    // Return an inventory array that has been filtered to values with a quantity greater than 5, then reduce that array down to their total value combined.
+    return inventory
+        .filter(([, quantity]) => quantity > 5)
+        .reduce((total, [, quantity, price]) => total + quantity * price, 0);
 }
